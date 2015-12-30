@@ -1,0 +1,44 @@
+{% extends 'ScolariteUserBundle::layout.html.twig' %}
+{% block title %}Authentification{% endblock %}
+{% block meta %} 
+    {{parent()}}
+{% endblock %}
+{% block basic_style %}
+    {{parent()}}
+{% endblock %}
+{% block content %}
+    {% block fos_user_content %}
+        <div class="container">
+            <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <h2 class="form-signin-heading">Authentification</h2>
+                <div class="login-wrap">
+                    {% if error %}
+                        <div class="alert alert-danger fade in">{{ error|trans({}, 'FOSUserBundle') }}
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                        </div>
+                    {% endif %}                    
+                    <div class="user-login-info">
+                        <input type="text" class="form-control" placeholder="Pseudo ou Email" 
+                               autofocus id="username" name="_username" required="required">
+                        <input type="password" class="form-control" placeholder="Mot de passe" id="password" 
+                               name="_password" required="required">
+                    </div>
+                    <label class="checkbox">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"> {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                        <span class="pull-right">
+                            <a href="{{ path('fos_user_resetting_request') }}"> Mot de passe oublié?</a>
+                        </span>
+                    </label>
+                    <button class="btn btn-lg btn-login btn-block" type="submit" id="_submit" name="_submit">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                </div>               
+            </form>
+            <p class="login_logo">
+                <img src="{{ asset('bundles/scolariteadmin/images/logo.jpg') }}" alt=""/>
+            </p>
+        </div>
+    {% endblock fos_user_content %}
+{% endblock content %}

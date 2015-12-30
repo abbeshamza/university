@@ -1,0 +1,33 @@
+user:
+    path:     /Administrateurs
+    defaults: { _controller: "ScolariteUserBundle:User:index" }
+user_enseignant:
+    path:     /Enseignants
+    defaults: { _controller: "ScolariteUserBundle:User:indexEnseignant" }
+user_etudiant:
+    path:     /Etudiants
+    defaults: { _controller: "ScolariteUserBundle:User:indexEtudiant" }
+user_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteUserBundle:User:show" }
+
+user_new:
+    path:     /new
+    defaults: { _controller: "ScolariteUserBundle:User:new" }
+
+user_create:
+    path:     /create
+    defaults: { _controller: "ScolariteUserBundle:User:create" }
+    requirements: { _method: post }
+
+
+
+user_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteUserBundle:User:update" }
+    requirements: { _method: post|put }
+
+user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteUserBundle:User:delete" }
+    requirements: { _method: post|delete }

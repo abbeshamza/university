@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ghada">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <!--Core CSS -->
+        <link href="{{ asset('bundles/scolariteadmin/bs3/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/scolariteadmin/css/bootstrap-reset.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/scolariteadmin/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/scolariteadmin/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/scolariteadmin/css/style-responsive.css') }}" rel="stylesheet">
+
+        <!-- Just for debugging purposes. Don't actually copy this line! -->
+        <!--[if lt IE 9]>
+        <script src="{{ asset('bundles/scolariteadmin/js/ie8-responsive-file-warning.js') }}"></script><![endif]-->
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <script src="{{ asset('bundles/scolariteadmin/js/jquery.js') }}"></script>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<section id="container" >
+    <!--header start-->
+    <header class="header fixed-top clearfix">
+        <!--logo start-->
+        <div class="brand">
+
+
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars"></div>
+            </div>
+        </div>
+        <!--logo end-->
+        <div class="top-nav clearfix">
+            <!--search & user info start-->
+            <ul class="nav pull-right top-menu">
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        {% if app.user.path is empty %}
+                            <img src="{{asset('bundles/scolariteadmin/images/avatar1_small.jpg')}}" alt="">
+                        {% else %}
+                            <img src="{{ asset('uploads/utilisateurs/'~app.user.path) }}" height="29" width="29" />
+                        {% endif %}
+
+                        {% if app.user.prenom is empty %}
+                            <span class="username">Bienvenue, {{ app.user.username }}</span>
+                        {% else %}
+                            <span class="username">Bienvenue, {{ app.user.prenom }} {{ app.user.nom }}</span>
+                        {% endif %}
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <li>
+                            <a href="{{ path('user_edit', { 'id': app.user.id }) }}">
+                                <i class=" fa fa-suitcase"></i>Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                <i class="fa fa-key"></i>
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- user login dropdown end -->
+            </ul>
+            <!--search & user info end-->
+        </div>
+    </header>
+    <!--header end-->
+    <aside>
+        <div id="sidebar" class="nav-collapse">
+            <!-- sidebar menu start-->
+            <div class="leftside-navigation">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li>
+                        <a href="{{ path('home_enseignant') }}">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('formation_index_enseignant') }}">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Formations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('liste_enseignant_emplois') }}">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Emplois</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('liste_enseignant_club') }}">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Clubs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('test_enseignant') }}">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Tests</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('absence_enseignant') }}">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Absence Collectives</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('rattrapage_enseignant') }}">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Rattrapages</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <!-- page start-->
+            <div class="row">
+                <div class="col-sm-12">
+                    {% block body %}
+                    {% endblock body %}
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+
+{% block javascripts %}
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <!--Core js-->
+    <script src="{{ asset('bundles/scolariteadmin/js/jquery.livequery.min.js')}}"></script>
+    <script src="{{ asset('bundles/scolariteadmin/bs3/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/scolariteadmin/js/jquery.dcjqaccordion.2.7.js') }}"></script>
+    <script src="{{ asset('bundles/scolariteadmin/js/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ asset('bundles/scolariteadmin/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js') }}"></script>
+    <script src="{{ asset('bundles/scolariteadmin/js/jquery.nicescroll.js') }}"></script>
+    <script src="{{ asset('bundles/scolariteadmin/js/easypiechart/jquery.easypiechart.js') }}"></script>
+    <script src="{{ asset('bundles/scolariteadmin/js/sparkline/jquery.sparkline.js') }}"></script>
+    <script src="{{ asset('bundles/scolariteadmin/js/scripts.js') }}"></script>
+{% endblock %}
+</body>
+</html>

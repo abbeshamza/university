@@ -1,0 +1,30 @@
+specialite:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Specialite:index" }
+
+specialite_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Specialite:show" }
+
+specialite_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Specialite:new" }
+
+specialite_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Specialite:create" }
+    requirements: { _method: post }
+
+specialite_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Specialite:edit" }
+
+specialite_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Specialite:update" }
+    requirements: { _method: post|put }
+
+specialite_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Specialite:delete" }
+    requirements: { _method: post|delete }

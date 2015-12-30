@@ -1,0 +1,96 @@
+{% extends '::base.html.twig' %}
+{% block title %}Rattrapage{% endblock title %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{asset('bundles/scolariteadmin/js/advanced-datatable/css/demo_page.css')}}" />
+    <link rel="stylesheet" href="{{asset('bundles/scolariteadmin/js/advanced-datatable/css/demo_table.css')}}" />
+    <link rel="stylesheet" href="{{asset('bundles/scolariteadmin/js/data-tables/DT_bootstrap.css')}}" />
+{% endblock stylesheets %}
+{% block body -%}
+    <div class="col-sm-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="{{ path('scolarite_admin_homepage') }}"><i class="fa fa-home"></i> Dashbord</a></li>            
+            <li class="active">Rattrapage</li>
+        </ul>
+        <!--breadcrumbs end -->
+        <section class="panel">
+            <header class="panel-heading">
+                Rattrapages            
+            </header>
+            <div class="panel-body">
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="alert alert-success alert-block fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            Success!
+                        </h4>
+                        <p>{{ flashMessage }}</p>
+                    </div>
+                {% endfor %}
+                <div class="adv-table">
+                    <div class="clearfix">
+                        <div class="btn-group pull-right">
+                            <a href="{{ path('rattrapage_new') }}" class="btn btn-primary">
+                                Nouveau <i class="fa fa-plus"></i>
+                            </a>
+                        </div>                        
+                    </div>
+                    <div class="space15"></div>                   
+                    <table class="display table table-bordered table-striped" id="dynamic-table">
+                        <thead>
+                            <tr>
+                                <th>Classe</th>
+                                <th>Matiere</th>
+                                <th>Salle</th>
+                               
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for entity in entities %}
+                                <tr class="gradeX">
+                                    <td><a href="{{ path('rattrapage_edit', { 'id': entity.id }) }}">{{ entity.classe.nom }}</a></td>
+                                    <td>{{ entity.matiere.nom }}</td>
+                                    <td>{{ entity.salle.nom }}</td>
+                                  
+                                    {# {% if entity.enabled is empty %}
+                                         <td><span class="label label-danger label-mini">Disabled</span></td>
+                                     {% else %}
+                                         <td><span class="label label-success label-mini">Enabled</span>  </td>
+                                     {% endif %}#}
+                                    <td>                                       
+                                        <a class="btn btn-default btn-sm" href="{{ path('rattrapage_edit', { 'id': entity.id }) }}" title="Modifier">
+                                                        <i class="fa fa-cog"></i> Modifier</a>
+                                         
+                                            <a class="btn btn-danger" href="{{ path('rattrapage_delete_from_datatable', { 'id': entity.id }) }}">
+                                                                <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+                                        {#<a href="{{ path('classe_delete_from_datatable', { 'id': entity.id }) }}" title="Supprimer">
+                                            <i class="fa fa-times fa-2x red"></i>
+                                        </a>#}
+                                    </td>    
+                                </tr>
+                            {% endfor %}
+                        </tbody>                        
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('bundles/scolariteadmin/js/advanced-datatable/js/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('bundles/scolariteadmin/js/data-tables/DT_bootstrap.js')}}"></script>
+    <script src="{{asset('bundles/scolariteadmin/js/dynamic_table_init.js')}}"></script>
+    <script type="text/javascript">
+        window.setTimeout(function () {
+            $(".alert-success").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 5000);
+    </script>
+{% endblock javascripts %}

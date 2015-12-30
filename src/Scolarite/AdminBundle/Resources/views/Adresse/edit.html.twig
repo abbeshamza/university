@@ -1,0 +1,111 @@
+{% extends '::base.html.twig' %}
+{% block title %}Modifier Adresse{% endblock %}
+{% block body -%}
+    {#    {% form_theme edit_form 'MyBookAdminBundle:Form:errors.html.twig' %}#}
+    <div class="col-lg-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="{{ path('scolarite_admin_homepage') }}"><i class="fa fa-home"></i> Dashbord</a></li>            
+            <li><a href="{{ path('club') }}">Adresses</a></li>
+            <li class="active">Modifier Adresse</li>
+        </ul>
+        <!--breadcrumbs end -->
+        <section class="panel">
+            <header class="panel-heading">
+                Modifier Adresse
+            </header>
+            <div class="panel-body">
+                {% for flashMessage in app.session.flashbag.get('success') %}
+                    <div class="alert alert-success alert-block fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            Success!
+                        </h4>
+                        <p>{{ flashMessage }}</p>
+                    </div>
+                {% endfor %}
+                <div class="clearfix">
+                    <div class="btn-group pull-right">
+                        <a href="{{ path('adresse') }}" class="btn btn-primary">
+                            Annuler <i class="fa fa-undo"></i>
+                        </a>
+                    </div>                        
+                </div>
+                <div class="space15"></div>
+                <div class="position-center">
+                    {{ form_start(edit_form, {'attr': {'novalidate': 'novalidate', 'class': 'form-horizontal', 'id': 'frm-departement'} }) }}
+                    <div class="form-group">
+                        {{ form_label(edit_form.ville, 'Ville', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.ville, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.ville) }}
+                            <p class="help-block">Modifier le nom du ville.</p>
+                        </div>
+                    </div>  
+                           <div class="form-group">
+                        {{ form_label(edit_form.cp, 'Code Postal', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.cp, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.cp) }}
+                            <p class="help-block">Modifier le nom du code postal.</p>
+                        </div>
+                    </div> 
+                            <div class="form-group">
+                        {{ form_label(edit_form.rue, 'Rue', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.rue, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.rue) }}
+                            <p class="help-block">Modifier le nom du rue.</p>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-danger">Envoyer</button>
+                        </div>
+                    </div>
+                    {{ form_rest(edit_form) }}
+                    {{ form_end(edit_form) }}
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock body %}
+{% block javascripts %}
+    {{ parent() }}
+    {#    <script src="{{asset('bundles/mybookadmin/js/jquery.validate.min.js')}}"></script>#}
+    {#<script type="text/javascript">
+        var Script = function () {
+            $().ready(function () {
+                // validate signup form on keyup and submit
+                $("#frm-about").validate({
+                    rules: {
+                        'mybook_adminbundle_category[name]': {
+                            required: true,
+                            minlength: 3
+                        },
+                        'mybook_adminbundle_category[enabled]': {
+                            required: false
+                        }
+                    },
+                    messages: {
+                        'mybook_adminbundle_category[name]': {
+                            required: "Please enter a category name",
+                            minlength: "Your category name must consist of at least 3 characters"
+                        }
+                    }
+                });
+            });
+        }();
+        window.setTimeout(function () {
+            $(".alert-success").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 5000);
+    </script>#}
+{% endblock javascripts %}
+
+
+

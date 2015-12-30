@@ -1,0 +1,30 @@
+absence:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Absence:index" }
+
+absence_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Absence:show" }
+
+absence_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Absence:new" }
+
+absence_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Absence:create" }
+    requirements: { _method: post }
+
+absence_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Absence:edit" }
+
+absence_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Absence:update" }
+    requirements: { _method: post|put }
+
+absence_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Absence:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+etudiant:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Etudiant:index" }
+
+etudiant_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Etudiant:show" }
+
+etudiant_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Etudiant:new" }
+
+etudiant_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Etudiant:create" }
+    requirements: { _method: post }
+
+etudiant_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Etudiant:edit" }
+
+etudiant_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Etudiant:update" }
+    requirements: { _method: post|put }
+
+etudiant_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Etudiant:delete" }
+    requirements: { _method: post|delete }

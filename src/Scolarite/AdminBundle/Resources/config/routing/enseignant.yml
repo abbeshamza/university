@@ -1,0 +1,30 @@
+enseignant:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Enseignant:index" }
+
+enseignant_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Enseignant:show" }
+
+enseignant_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Enseignant:new" }
+
+enseignant_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Enseignant:create" }
+    requirements: { _method: post }
+
+enseignant_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Enseignant:edit" }
+
+enseignant_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Enseignant:update" }
+    requirements: { _method: post|put }
+
+enseignant_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Enseignant:delete" }
+    requirements: { _method: post|delete }

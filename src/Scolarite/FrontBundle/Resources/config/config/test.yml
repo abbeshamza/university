@@ -1,0 +1,11 @@
+test_enseignant_new:
+    path:     /new
+    defaults: { _controller: "ScolariteFrontBundle:Test:new" }
+
+test_enseignant_create:
+    path:     /create
+    defaults: { _controller: "ScolariteFrontBundle:Test:create" }
+    requirements: { _method: post }
+test_enseignant:
+    path:     /
+    defaults: { _controller: "ScolariteFrontBundle:Test:index" }

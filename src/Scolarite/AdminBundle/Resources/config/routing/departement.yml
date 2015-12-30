@@ -1,0 +1,30 @@
+departement:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Departement:index" }
+
+departement_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Departement:show" }
+
+departement_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Departement:new" }
+
+departement_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Departement:create" }
+    requirements: { _method: post }
+
+departement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Departement:edit" }
+
+departement_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Departement:update" }
+    requirements: { _method: post|put }
+
+departement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Departement:delete" }
+    requirements: { _method: post|delete }

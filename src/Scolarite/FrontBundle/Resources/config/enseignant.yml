@@ -1,0 +1,21 @@
+home_enseignant:
+    path:     /
+    defaults: { _controller: "ScolariteFrontBundle:Enseignant:index" }
+liste_enseignant_emplois:
+    path:     /emplois
+    defaults: { _controller: "ScolariteFrontBundle:Enseignant:emploi" }
+liste_enseignant_club:
+    path:     /clubs
+    defaults: { _controller: "ScolariteFrontBundle:Enseignant:club" }
+abs:
+    resource: "@ScolariteFrontBundle/Resources/config/config/absence.yml"
+    prefix:   /absences
+forma:
+    resource: "@ScolariteFrontBundle/Resources/config/config/formation.yml"
+    prefix:   /formation
+ratt:
+    resource: "@ScolariteFrontBundle/Resources/config/config/rattrapage.yml"
+    prefix:   /rattrapages
+tes:
+    resource: "@ScolariteFrontBundle/Resources/config/config/test.yml"
+    prefix:   /tests

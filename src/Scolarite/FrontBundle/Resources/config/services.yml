@@ -1,0 +1,4 @@
+services:
+#    scolarite_front.example:
+#        class: Scolarite\FrontBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

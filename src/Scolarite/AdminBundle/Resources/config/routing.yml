@@ -1,0 +1,115 @@
+scolarite_admin_absence:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/absence.yml"
+    prefix:   /absence
+
+scolarite_admin_rattrapage:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/rattrapage.yml"
+    prefix:   /rattrapage
+
+scolarite_admin_etudiant:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/etudiant.yml"
+    prefix:   /etudiant
+
+scolarite_admin_enseignant:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/enseignant.yml"
+    prefix:   /enseignant
+
+
+scolarite_admin_test:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/test.yml"
+    prefix:   /test
+
+scolarite_admin_adresse:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/adresse.yml"
+    prefix:   /adresse
+
+
+
+
+
+scolarite_admin_specialite:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/specialite.yml"
+    prefix:   /specialite
+
+scolarite_admin_matiere:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/matiere.yml"
+    prefix:   /matiere
+
+scolarite_admin_formation:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/formation.yml"
+    prefix:   /formation
+
+scolarite_admin_salle:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/salle.yml"
+    prefix:   /salle
+
+scolarite_admin_classe:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/classe.yml"
+    prefix:   /classe
+
+scolarite_admin_emploi:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/emploi.yml"
+    prefix:   /emploi
+
+scolarite_admin_niveau:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/niveau.yml"
+    prefix:   /niveau
+
+scolarite_admin_departement:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/departement.yml"
+    prefix:   /departement
+scolarite_admin_club:
+    resource: "@ScolariteAdminBundle/Resources/config/routing/club.yml"
+    prefix:   /club
+scolarite_admin_homepage:
+    path:     /
+    defaults: { _controller: ScolariteAdminBundle:Admin:index }
+    
+salle_delete_from_datatable:
+    path:     /salle/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Salle:removeFromDatatable }
+    
+formation_delete_from_datatable:
+    path:     /formation/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Formation:removeFromDatatable }
+    
+classe_delete_from_datatable:
+    path:     /classe/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Classe:removeFromDatatable }
+departement_delete_from_datatable:
+    path:     /departement/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Departement:removeFromDatatable } 
+emploi_delete_from_datatable:
+    path:     /emploi/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Emploi:removeFromDatatable } 
+niveau_delete_from_datatable:
+    path:     /niveau/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Niveau:removeFromDatatable } 
+matiere_delete_from_datatable:
+    path:     /matiere/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Matiere:removeFromDatatable }
+specialite_delete_from_datatable:
+    path:     /specialite/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Specialite:removeFromDatatable }
+
+club_delete_from_datatable:
+    path:     /club/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Club:removeFromDatatable }
+adresse_delete_from_datatable:
+    path:     /adresse/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Adresse:removeFromDatatable }
+test_delete_from_datatable:
+    path:     /test/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Test:removeFromDatatable }
+rattrapage_delete_from_datatable:
+    path:     /rattrapage/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Rattrapage:removeFromDatatable }
+enseignant_delete_from_datatable:
+    path:     /enseignant/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Enseignant:removeFromDatatable }
+etudiant_delete_from_datatable:
+    path:     /etudiant/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Etudiant:removeFromDatatable }
+absence_delete_from_datatable:
+    path:     /absence/remove/{id}
+    defaults: { _controller: ScolariteAdminBundle:Absence:removeFromDatatable }

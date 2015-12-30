@@ -1,0 +1,137 @@
+{% extends '::base.html.twig' %}
+{% block title %}Ajouter Classe{% endblock %}
+{% block body -%}
+    {#    {% form_theme edit_form 'MyBookAdminBundle:Form:errors.html.twig' %}#}
+    <div class="col-lg-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="{{ path('scolarite_admin_homepage') }}"><i class="fa fa-home"></i> Dashbord</a></li>            
+            <li><a href="{{ path('classe') }}">Classes</a></li>
+            <li class="active">Ajouter classe</li>
+        </ul>
+        <!--breadcrumbs end -->
+        <section class="panel">
+            <header class="panel-heading">
+                Ajouter classe
+            </header>
+            <div class="panel-body">
+                {% for flashMessage in app.session.flashbag.get('success') %}
+                    <div class="alert alert-success alert-block fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            Success!
+                        </h4>
+                        <p>{{ flashMessage }}</p>
+                    </div>
+                {% endfor %}
+                <div class="clearfix">
+                    <div class="btn-group pull-right">
+                        <a href="{{ path('classe') }}" class="btn btn-primary">
+                            Annuler <i class="fa fa-undo"></i>
+                        </a>
+                    </div>                        
+                </div>
+                <div class="space15"></div>
+                <div class="position-center">
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'form-horizontal', 'id': 'frm-classe'} }) }}
+                    <div class="form-group">
+                        {{ form_label(form.nom, 'Nom', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.nom, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(form.nom) }}
+                            <p class="help-block">Entrer le nom de la classe.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(form.nbrEtudiant, 'Nbr étudiants', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.nbrEtudiant, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(form.nbrEtudiant) }}
+                            <p class="help-block">Entrer le nombre d'étudiants.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(form.departement, 'Département', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.departement, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(form.departement) }}
+                            <p class="help-block">Sélectionner le département.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(form.niveau, 'Niveau', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.niveau, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(form.niveau) }}
+                            <p class="help-block">Sélectionner le niveau.</p>
+                        </div>
+                    </div>    
+                    <hr>
+                    <h3>Emploi</h3>
+                    <div class="form-group">
+                        {{ form_label(form.emploi.nom, 'Nom emploi', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.emploi.nom, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(form.emploi.nom) }}
+                            <p class="help-block">Entrer le nom de l'emploi.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(form.emploi.file, 'Fichier', { 'label_attr': {'class': 'control-label col-lg-2 col-sm-2'} }) }}
+                        {{ form_errors(form.emploi.file) }}
+                        <div class="col-md-4">
+                            {{ form_widget(form.emploi.file, {'attr': {'class' : 'default'} }) }}
+                            <p class="help-block">Télécharger votre emploi.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-danger">Envoyer</button>
+                        </div>
+                    </div>
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock body %}
+{% block javascripts %}
+    {{ parent() }}
+    {#    <script src="{{asset('bundles/mybookadmin/js/jquery.validate.min.js')}}"></script>#}
+    {#<script type="text/javascript">
+        var Script = function () {
+            $().ready(function () {
+                // validate signup form on keyup and submit
+                $("#frm-about").validate({
+                    rules: {
+                        'mybook_adminbundle_category[name]': {
+                            required: true,
+                            minlength: 3
+                        },
+                        'mybook_adminbundle_category[enabled]': {
+                            required: false
+                        }
+                    },
+                    messages: {
+                        'mybook_adminbundle_category[name]': {
+                            required: "Please enter a category name",
+                            minlength: "Your category name must consist of at least 3 characters"
+                        }
+                    }
+                });
+            });
+        }();
+        window.setTimeout(function () {
+            $(".alert-success").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 5000);
+    </script>#}
+{% endblock javascripts %}
+
+
+

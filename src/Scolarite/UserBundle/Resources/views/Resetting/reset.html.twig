@@ -1,0 +1,10 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block meta %} 
+    {{parent()}}
+{% endblock %}
+{% block basic_style %}
+    {{ parent() }}
+{% endblock %}
+{% block fos_user_content %}
+{% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
+{% endblock fos_user_content %}

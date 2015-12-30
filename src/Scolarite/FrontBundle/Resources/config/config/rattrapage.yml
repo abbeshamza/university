@@ -1,0 +1,12 @@
+rattrapage_enseignant:
+    path:     /
+    defaults: { _controller: "ScolariteFrontBundle:Rattrapage:enseignant" }
+
+rattrapage_enseignant_new:
+    path:     /new
+    defaults: { _controller: "ScolariteFrontBundle:Rattrapage:new" }
+
+rattrapage_enseignant_create:
+    path:     /create
+    defaults: { _controller: "ScolariteFrontBundle:Rattrapage:create" }
+    requirements: { _method: post }

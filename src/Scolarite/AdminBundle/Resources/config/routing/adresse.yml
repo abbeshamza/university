@@ -1,0 +1,30 @@
+adresse:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Adresse:index" }
+
+adresse_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Adresse:show" }
+
+adresse_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Adresse:new" }
+
+adresse_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Adresse:create" }
+    requirements: { _method: post }
+
+adresse_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Adresse:edit" }
+
+adresse_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Adresse:update" }
+    requirements: { _method: post|put }
+
+adresse_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Adresse:delete" }
+    requirements: { _method: post|delete }

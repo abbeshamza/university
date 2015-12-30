@@ -1,0 +1,12 @@
+scolarite_user_user:
+    resource: "@ScolariteUserBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+scolarite_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ScolariteUserBundle:Default:index }
+    
+user_delete_from_datatable:
+    path:     /user/remove/{id}
+    defaults: { _controller: ScolariteUserBundle:User:removeFromDatatable }
+

@@ -1,0 +1,30 @@
+matiere:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Matiere:index" }
+
+matiere_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Matiere:show" }
+
+matiere_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Matiere:new" }
+
+matiere_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Matiere:create" }
+    requirements: { _method: post }
+
+matiere_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Matiere:edit" }
+
+matiere_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Matiere:update" }
+    requirements: { _method: post|put }
+
+matiere_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Matiere:delete" }
+    requirements: { _method: post|delete }

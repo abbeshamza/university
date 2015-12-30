@@ -1,0 +1,11 @@
+formation_index_enseignant:
+    path:     /
+    defaults: { _controller: "ScolariteFrontBundle:Enseignant:formation" }
+formation_enseignant_new:
+    path:     /new
+    defaults: { _controller: "ScolariteFrontBundle:Formation:new" }
+
+formation_enseignant_create:
+    path:     /create
+    defaults: { _controller: "ScolariteFrontBundle:Formation:create" }
+    requirements: { _method: post }

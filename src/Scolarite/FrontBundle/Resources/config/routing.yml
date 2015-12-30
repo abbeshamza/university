@@ -1,0 +1,22 @@
+scolarite_front_homepage:
+    path:     /
+    defaults: { _controller: ScolariteFrontBundle:Front:index }
+liste_formation:
+    path:     /formations
+    defaults: { _controller: "ScolariteFrontBundle:Front:formation" }
+liste_abs:
+    path:     /absences_collectif
+    defaults: { _controller: "ScolariteFrontBundle:Front:absence" }
+liste_emplois:
+    path:     /emplois
+    defaults: { _controller: "ScolariteFrontBundle:Front:emploi" }
+liste_club:
+    path:     /clubs
+    defaults: { _controller: "ScolariteFrontBundle:Front:club" }
+liste_test:
+    path:     /tests
+    defaults: { _controller: "ScolariteFrontBundle:Front:test" }
+liste_rat:
+    path:     /rattrapages
+    defaults: { _controller: "ScolariteFrontBundle:Front:rattrapage" }
+

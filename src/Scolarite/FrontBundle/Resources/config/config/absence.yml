@@ -1,0 +1,12 @@
+
+absence_enseignant:
+    path:     /
+    defaults: { _controller: "ScolariteFrontBundle:Absence:index" }
+absence_enseignant_new:
+    path:     /new
+    defaults: { _controller: "ScolariteFrontBundle:Absence:new" }
+
+absence_enseignant_create:
+    path:     /create
+    defaults: { _controller: "ScolariteFrontBundle:Absence:create" }
+    requirements: { _method: post }

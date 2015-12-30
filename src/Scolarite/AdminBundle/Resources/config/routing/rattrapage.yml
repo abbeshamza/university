@@ -1,0 +1,30 @@
+rattrapage:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Rattrapage:index" }
+
+rattrapage_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Rattrapage:show" }
+
+rattrapage_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Rattrapage:new" }
+
+rattrapage_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Rattrapage:create" }
+    requirements: { _method: post }
+
+rattrapage_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Rattrapage:edit" }
+
+rattrapage_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Rattrapage:update" }
+    requirements: { _method: post|put }
+
+rattrapage_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Rattrapage:delete" }
+    requirements: { _method: post|delete }

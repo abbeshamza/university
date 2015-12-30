@@ -1,0 +1,30 @@
+niveau:
+    path:     /
+    defaults: { _controller: "ScolariteAdminBundle:Niveau:index" }
+
+niveau_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScolariteAdminBundle:Niveau:show" }
+
+niveau_new:
+    path:     /new
+    defaults: { _controller: "ScolariteAdminBundle:Niveau:new" }
+
+niveau_create:
+    path:     /create
+    defaults: { _controller: "ScolariteAdminBundle:Niveau:create" }
+    requirements: { _method: post }
+
+niveau_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteAdminBundle:Niveau:edit" }
+
+niveau_update:
+    path:     /{id}/update
+    defaults: { _controller: "ScolariteAdminBundle:Niveau:update" }
+    requirements: { _method: post|put }
+
+niveau_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScolariteAdminBundle:Niveau:delete" }
+    requirements: { _method: post|delete }

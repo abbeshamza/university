@@ -1,0 +1,233 @@
+{% extends '::base.html.twig' %}
+{% block title %}Modifier Utilisateur{% endblock %}
+{% block body -%}
+    {#    {% form_theme edit_form 'MyBookAdminBundle:Form:errors.html.twig' %}#}
+    <div class="col-lg-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="{{ path('scolarite_admin_homepage') }}"><i class="fa fa-home"></i> Dashbord</a></li>            
+            <li><a href="{{ path('user') }}">Utilisateurs</a></li>
+            <li class="active">Modifier utilisateur</li>
+        </ul>
+        <!--breadcrumbs end -->
+        <section class="panel">
+            <header class="panel-heading">
+                Modifier utilisateur
+            </header>
+            <div class="panel-body">
+                {% for flashMessage in app.session.flashbag.get('success') %}
+                    <div class="alert alert-success alert-block fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            Success!
+                        </h4>
+                        <p>{{ flashMessage }}</p>
+                    </div>
+                {% endfor %}
+                <div class="clearfix">
+                    <div class="btn-group pull-right">
+                        <a href="{{ path('user') }}" class="btn btn-primary">
+                            Annuler <i class="fa fa-undo"></i>
+                        </a>
+                    </div>                        
+                </div>
+                <div class="space15"></div>
+                <div class="position-center">
+                    {{ form_start(edit_form, {'attr': {'novalidate': 'novalidate', 'class': 'form-horizontal', 'id': 'frm-user'} }) }}
+                    <div class="form-group">
+                        {{ form_label(edit_form.prenom, 'Prénom', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.prenom, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.prenom) }}
+                            <p class="help-block">Entrer le prenom de l'utilisateur.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(edit_form.nom, 'Nom', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.nom, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.nom) }}
+                            <p class="help-block">Entrer le nom de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.dateNaissance, 'Date de naissance', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.dateNaissance, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.dateNaissance) }}
+                            <p class="help-block">Entrer la date de naissance.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.email, 'Email', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.email, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.email) }}
+                            <p class="help-block">Entrer l'email de l'utilisateur.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(edit_form.username, 'Pseudo', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.username, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.username) }}
+                            <p class="help-block">Entrer le pseudo de l'utilisateur.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(edit_form.roles, 'Pseudo', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.roles, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.roles) }}
+                            <p class="help-block">Entrer le pseudo de l'utilisateur.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(edit_form.plainPassword.first, 'Mot de passe', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.plainPassword.first, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.plainPassword.first) }}
+                            <p class="help-block">Entrer le mot de passe de l'utilisateur.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(edit_form.plainPassword.second, 'Confirmation mot de passe', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.plainPassword.second, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.plainPassword.second) }}
+                            <p class="help-block">Entrer confirmation mot de passe.</p>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        {{ form_label(edit_form.file, 'Photo', { 'label_attr': {'class': 'control-label col-lg-2 col-sm-2'} }) }}
+                        {{ form_errors(edit_form.file) }}
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.file, {'attr': {'class' : 'default'} }) }}
+                            <p class="help-block">Télécharger votre photo.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.tel, 'telephone', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.tel, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.tel) }}
+                            <p class="help-block">Entrer le numéro du telephone de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.mobile, 'autre telephone  ', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.mobile, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.mobile) }}
+                            <p class="help-block">Entrer un autre numéro du telephone de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.departement, 'Département', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.departement, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.departement) }}
+                            <p class="help-block">Entrer le département de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.classe, 'Classe', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.classe, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.classe) }}
+                            <p class="help-block">Entrer la classe de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.niveau, 'Niveau', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.niveau, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.niveau) }}
+                            <p class="help-block">Entrer le niveau de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.adresse, 'Adresse', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.adresse, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.adresse) }}
+                            <p class="help-block">Entrer l'adresse de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.specialite, 'Spécialité', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.specialite, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.specialite) }}
+                            <p class="help-block">Entrer la spécialité de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(edit_form.matiere, 'Matiére', { 'label_attr': {'class': 'col-lg-2 col-sm-2 control-label'} }) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(edit_form.matiere, {'attr': {'class' : 'form-control'} }) }}
+                            {{ form_errors(edit_form.matiere) }}
+                            <p class="help-block">Entrer la matiére de l'utilisateur.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <div class="checkbox">
+                                <label>
+                                    {{ form_widget(edit_form.enabled) }} {{ form_label(edit_form.enabled) }}
+                                </label>
+                                {{ form_errors(edit_form.enabled) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-danger">Envoyer</button>
+                        </div>
+                    </div>
+                    {{ form_rest(edit_form) }}
+                    {{ form_end(edit_form) }}
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock body %}
+{% block javascripts %}
+    {{ parent() }}
+    {#    <script src="{{asset('bundles/mybookadmin/js/jquery.validate.min.js')}}"></script>#}
+    {#<script type="text/javascript">
+        var Script = function () {
+            $().ready(function () {
+                // validate signup form on keyup and submit
+                $("#frm-about").validate({
+                    rules: {
+                        'mybook_adminbundle_category[name]': {
+                            required: true,
+                            minlength: 3
+                        },
+                        'mybook_adminbundle_category[enabled]': {
+                            required: false
+                        }
+                    },
+                    messages: {
+                        'mybook_adminbundle_category[name]': {
+                            required: "Please enter a category name",
+                            minlength: "Your category name must consist of at least 3 characters"
+                        }
+                    }
+                });
+            });
+        }();
+        window.setTimeout(function () {
+            $(".alert-success").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 5000);
+    </script>#}
+{% endblock javascripts %}
+
+
+

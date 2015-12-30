@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock title %}</title>      
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="images/favicon.png">
+        {% block core_style %} 
+            <link rel="stylesheet" href="{{asset('bundles/scolariteadmin/bs3/css/bootstrap.min.css')}}" />
+            <link rel="stylesheet" href="{{asset('bundles/scolariteadmin/css/bootstrap-reset.css')}}" />
+            <link rel="stylesheet" href="{{asset('bundles/scolariteadmin/font-awesome/css/font-awesome.css')}}" />
+        {% endblock core_style %}  
+        <!-- Custom styles for this template -->
+        {% block custom_styles %}
+            <link rel="stylesheet" href="{{asset('bundles/scolariteadmin/css/style.css')}}" />
+            <link rel="stylesheet" href="{{asset('bundles/scolariteadmin/css/style-responsive.css')}}" />
+            <!-- Just for debugging purposes. Don't actually copy this line! -->
+            <!--[if lt IE 9]>
+           <script src="{{asset('bundles/scolariteadmin/js/ie8-responsive-file-warning.js')}}"></script><![endif]-->
+
+            <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+            <![endif]-->
+        {% endblock custom_styles %}
+    </head>
+    <body class="login-body">
+        {% block content %}
+            {% block fos_user_content %}  
+            {% endblock %}    
+        {% endblock %}
+        {% block core_js %}
+            <script src="{{asset('bundles/scolariteadmin/js/jquery.js')}}"></script>
+            <script src="{{asset('bundles/scolariteadmin/bs3/js/bootstrap.min.js')}}"></script>
+        {% endblock core_js %}
+    </body>
+</html>
+
+

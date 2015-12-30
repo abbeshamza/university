@@ -1,0 +1,30 @@
+
+
+scolarite_user:
+    resource: "@ScolariteUserBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+scolarite_front:
+    resource: "@ScolariteFrontBundle/Resources/config/routing.yml"
+    prefix:   /Etudiant
+
+scolarite_enseignant:
+    resource: "@ScolariteFrontBundle/Resources/config/enseignant.yml"
+    prefix:   /Enseignant
+
+scolarite_admin:
+    resource: "@ScolariteAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+homepage:
+    path:     /index
+    defaults: { _controller: ScolariteUserBundle:Default:redirectlogin }
+user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScolariteUserBundle:User:edit" }
+inscription:
+    path:     /inscription
+    defaults: { _controller: ScolariteUserBundle:Default:inscription }
+
